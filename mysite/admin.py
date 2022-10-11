@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Profile 
+from .models import Info, Profile , Category,pro
 
 from django.contrib.auth.models import User
 
@@ -25,6 +25,9 @@ admin.site.unregister(User)
 
 admin.site.register(User,CustomizeUserAdmin )
 
+admin.site.register(Info)
+admin.site.register(Category)
 
+admin.site.register(pro)
 
 

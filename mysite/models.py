@@ -1,4 +1,8 @@
 
+
+from distutils.command import upload
+from email.mime import image
+from pyexpat import model
 from random import choices
 from unittest.util import _MAX_LENGTH
 from django.db import models
@@ -28,10 +32,38 @@ class Profile(models.Model):
 
 
 
+class Info(models.Model):
+    id = models.AutoField(primary_key=True)
+    User_id = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    Country = models.CharField(max_length=30, blank=True)
+    City = models.CharField(max_length=30, blank=True)
+    street = models.CharField(max_length=30, blank=True)
 
 
 
+class Category(models.Model):
+    id = models.AutoField(primary_key=True)
+    Description= models.CharField(max_length=30, unique=True)
+
+
+
+
+
+
+
+
+class pro(models.Model):
+    name1 = models.CharField(max_length=30, blank=True)
+    id = models.AutoField(primary_key=True)
+    image = models.ImageField(upload_to='img', default=0)
+    Sku = models.CharField(max_length=30, unique=True, default=0 )
+    price = models.DecimalField(decimal_places=2, max_digits=20, default=0.00)
+    category_id = models.ForeignKey(Category , on_delete=models.CASCADE, default='1')
    
 
 
 
+ 
+
+
+ 
