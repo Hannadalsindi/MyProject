@@ -39,6 +39,8 @@ class Info(models.Model):
     City = models.CharField(max_length=30, blank=True)
     street = models.CharField(max_length=30, blank=True)
 
+    
+
 
 
 class Category(models.Model):
@@ -67,3 +69,10 @@ class pro(models.Model):
 
 
  
+class register(models.Model):
+    name=models.CharField(max_length=30)
+    email=models.EmailField()
+    phone=models.IntegerField()
+    address=models.CharField(max_length=100)
+
+    
