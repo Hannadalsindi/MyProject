@@ -10,15 +10,31 @@
 
     <h1>Address </h1>
 
-    <form method="POST">
+    <form  method="POST">
+      
+        <!-- Change the input to select -->
+        <!-- loop throught the user date from the view  -->
+      
+      
+        <label for="User_id">select id :</label>
+
+      
+        <select name="User_id" id="User_id">
+            
+        {% for x in users %}
+         <option value="{{x.pk}}">{{x.username}}</option>
+         {% endfor %}
+        </select>
+          
+       
         {% csrf_token %}
-        <input type="text" name="User_id" placeholder="User Id">
         <br>
+        
         <input type="text" name="Country"  placeholder="Country">
         <br>
         <input type="text" name="City" placeholder="City">
         <br>
-       <input type="text" name="Street" placeholder="Street">
+       <input type="text" name="street" placeholder="street">
         <br>
     
          <input type="submit" value="Send">
@@ -26,14 +42,75 @@
          
 
 
-
-
-
-
-
-
-
     </form>
+
+
+
+    
+
+      <h1>Category </h1>
+
+    <form action="addAddress" method="POST">
+        {% csrf_token %}
+        
+        <br>
+        <input type="text" name="Description"  placeholder="Description">
+      
+        <br>
+    
+         <input type="submit" value="Send">
+         <br>
+         
+
+
+    </form> 
+
+    <h1>Products</h1>
+
+
+
+ <!-- <form  method="POST">
+      
+      
+      
+      
+        <label for="category_id">select Category :</label>
+
+      
+        <select name="category_id" id="category_id">
+            
+        {% for y in Description %}
+         <option value="{{y.pk}}">{{y.Category}}</option>
+         {% endfor %} 
+        </select>
+          
+       
+        {% csrf_token %}
+        <br>
+        
+        <input type="text" name="name1"  placeholder="name">
+        <br>
+        <input type="file" accept="image/*" name="image" placeholder="image">
+        <br>
+       <input type="Sku" name="street" placeholder="Sku">
+        <br>
+        <br>
+        <input type="number" name="price" placeholder="price">
+         <br>
+         
+       
+    
+         <input type="submit" value="Send">
+         <br>
+         
+
+
+    </form> -->
+
+
+
+
+ 
 
     
 </body>
