@@ -62,10 +62,10 @@ def prod(request):
         image= request.POST['image']
         Sku=request.POST['Sku']
         price=request.POST['price']
-        category_id=request.POST[' category_id']
+        Category_id=request.POST[' Category_id']
 
 
-        data=pro(name1=name1, image=image, Sku= Sku, price=price, category_id=category_id)
+        data=pro(name1=name1, image=image, Sku= Sku, price=price, Category_id_id=Category_id)
         data.save()
 
 
