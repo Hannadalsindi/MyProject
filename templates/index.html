@@ -69,19 +69,19 @@
 
 
 
- <!-- <form  method="POST">
+ <form  method="POST">
       
       
       
       
-        <label for="category_id">select Category :</label>
+        <label for="Category_id">select Category :</label>
 
       
-        <select name="category_id" id="category_id">
+        <select name="Category_id" id="Category_id">
             
-        {% for y in Description %}
-         <option value="{{y.pk}}">{{y.Category}}</option>
-         {% endfor %} 
+         {% for y in pro %}
+         <option value="{{y.pk}}">{{y.Category_id}}</option>
+         {% endfor %}  
         </select>
           
        
@@ -90,12 +90,13 @@
         
         <input type="text" name="name1"  placeholder="name">
         <br>
-        <input type="file" accept="image/*" name="image" placeholder="image">
-        <br>
+        
        <input type="Sku" name="street" placeholder="Sku">
+       <br>
+       <input type="number" name="price" placeholder="price">
         <br>
-        <br>
-        <input type="number" name="price" placeholder="price">
+        <input type="file" accept="image/*" name="image" placeholder="image">
+        
          <br>
          
        
@@ -105,7 +106,7 @@
          
 
 
-    </form> -->
+    </form> 
 
 
 
