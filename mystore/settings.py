@@ -11,12 +11,13 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 from pathlib import Path
+from django.conf import settings
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+settings.configure()
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -30,12 +31,12 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
-CACHES = {
-'default': {
-'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'
-}
-}
+# SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+# CACHES = {
+# 'default': {
+# 'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'
+# }
+# }
 
 INSTALLED_APPS = [
     'django.contrib.admin',
