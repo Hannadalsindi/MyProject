@@ -58,7 +58,7 @@ class Category(models.Model):
 class pro(models.Model):
     id = models.AutoField(primary_key=True)
     Category_id = models.ForeignKey(Category , on_delete=models.CASCADE, default=1)
-    name1 = models.CharField(max_length=30, blank=True)
+    product_name = models.CharField(max_length=30, blank=True)
     image = models.ImageField(upload_to='img', default=0)
     Sku = models.CharField(max_length=30, unique=True, default=0 )
     price = models.DecimalField(decimal_places=2, max_digits=20, default=0.00)

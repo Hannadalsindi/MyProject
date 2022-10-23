@@ -35,8 +35,13 @@ def index(request):
     ## load all users
     ## send the user details to the template
     users = User.objects.all()
+    category=Category.objects.all()
+    print(category)
+    Pro=pro.objects.all()
+   
+   
     
-    return render(request,'index.html',{'users':users})
+    return render(request,'index.html',{'users':users,'category':category,'pro':Pro})
 
 
 
@@ -58,15 +63,19 @@ def cat(request):
 def prod(request):
 
     if request.method == 'POST':
-        name1= request.POST[' name1']
+        
+        product_name= request.POST['product_name']
         image= request.POST['image']
         Sku=request.POST['Sku']
         price=request.POST['price']
-        Category_id=request.POST[' Category_id']
+        Category_id=request.POST['Category_id']
+        
+       
 
 
-        data=pro(name1=name1, image=image, Sku= Sku, price=price, Category_id_id=Category_id)
+        data=pro(product_name=product_name, image=image, Sku= Sku, price=price, Category_id_id=Category_id)
         data.save()
+   
 
 
     return render(request,'index.html')
