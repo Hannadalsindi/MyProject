@@ -69,7 +69,7 @@
 
 
 
- <form  method="POST">
+ <form action="product" method="POST">
       
       
       
@@ -79,8 +79,8 @@
       
         <select name="Category_id" id="Category_id">
             
-         {% for y in pro %}
-         <option value="{{y.pk}}">{{y.Category_id}}</option>
+         {% for y in category %}
+         <option value="{{y.pk}}">{{y.Description}}</option>
          {% endfor %}  
         </select>
           
@@ -88,10 +88,10 @@
         {% csrf_token %}
         <br>
         
-        <input type="text" name="name1"  placeholder="name">
+        <input type="text" name="product_name"  placeholder="product_name">
         <br>
         
-       <input type="Sku" name="street" placeholder="Sku">
+       <input type="Sku" name="Sku" placeholder="Sku">
        <br>
        <input type="number" name="price" placeholder="price">
         <br>
