@@ -1,117 +1,46 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title></title>
+    
 </head>
+
 <body>
+  {% extends 'base.html' %}
 
-    <h1>Address </h1>
-
-    <form  method="POST">
-      
-        <!-- Change the input to select -->
-        <!-- loop throught the user date from the view  -->
-      
-      
-        <label for="User_id">select id :</label>
-
-      
-        <select name="User_id" id="User_id">
-            
-        {% for x in users %}
-         <option value="{{x.pk}}">{{x.username}}</option>
-         {% endfor %}
-        </select>
-          
-       
-        {% csrf_token %}
-        <br>
-        
-        <input type="text" name="Country"  placeholder="Country">
-        <br>
-        <input type="text" name="City" placeholder="City">
-        <br>
-       <input type="text" name="street" placeholder="street">
-        <br>
-    
-         <input type="submit" value="Send">
-         <br>
-         
+   {% block content %}
+<br>
+   <h1>Category</h1>
+   <br>
 
 
-    </form>
+   <ul class="nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link " href="#">Mobiles</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Laptops</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Gaming</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Televisions</a>
+    </li>
+  </ul>
 
-
+     
 
     
 
-      <h1>Category </h1>
-
-    <form action="addAddress" method="POST">
-        {% csrf_token %}
-        
-        <br>
-        <input type="text" name="Description"  placeholder="Description">
-      
-        <br>
-    
-         <input type="submit" value="Send">
-         <br>
-         
 
 
-    </form> 
-
-    <h1>Products</h1>
-
-
-
- <form action="product" method="POST">
-      
-      
-      
-      
-        <label for="Category_id">select Category :</label>
-
-      
-        <select name="Category_id" id="Category_id">
-            
-         {% for y in category %}
-         <option value="{{y.pk}}">{{y.Description}}</option>
-         {% endfor %}  
-        </select>
-          
-       
-        {% csrf_token %}
-        <br>
-        
-        <input type="text" name="product_name"  placeholder="product_name">
-        <br>
-        
-       <input type="Sku" name="Sku" placeholder="Sku">
-       <br>
-       <input type="number" name="price" placeholder="price">
-        <br>
-        <input type="file" accept="image/*" name="image" placeholder="image">
-        
-         <br>
-         
-       
-    
-         <input type="submit" value="Send">
-         <br>
-         
-
-
-    </form> 
-
-
-
-
- 
+    {% endblock %}
 
     
 </body>
