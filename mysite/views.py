@@ -19,29 +19,18 @@ from mysite.models import Info , Category , pro
 
 
 def index(request):
-    if request.method == 'POST':    
-        User_id= request.POST['User_id']
-        Country = request.POST['Country']
-        City = request.POST['City']
-        street = request.POST['street']
-
-        
-
-        
-        data = Info(User_id_id = User_id, Country=Country,City=City,street=street)  
-        data.save()
+    
     
         
     ## load all users
     ## send the user details to the template
-    users = User.objects.all()
-    category=Category.objects.all()
-    print(category)
-    Pro=pro.objects.all()
+   
+    
+    
    
    
     
-    return render(request,'index.html',{'users':users,'category':category,'pro':Pro})
+    return render(request,'index.html')
 
 
 
@@ -53,9 +42,11 @@ def cat(request):
 
         data=Category(Description=Description)
         data.save()
+    
+    
 
 
-    return render(request,'index.html')
+    return render(request,'category.html')
 
 
 
@@ -75,14 +66,37 @@ def prod(request):
 
         data=pro(product_name=product_name, image=image, Sku= Sku, price=price, Category_id_id=Category_id)
         data.save()
+
+    category=Category.objects.all()
+
+
+    Pro=pro.objects.all()
    
 
 
-    return render(request,'index.html')
+    return render(request,'product.html',{'pro':Pro,'category':category})
 
 
 
 
+
+
+def info(request):
+    if request.method == 'POST':    
+        User_id= request.POST['User_id']
+        Country = request.POST['Country']
+        City = request.POST['City']
+        street = request.POST['street']
+
+        
+
+        
+        data = Info(User_id_id = User_id, Country=Country,City=City,street=street)  
+        data.save()
+    users = User.objects.all()
+
+
+    return render(request,'info.html',{'users':users})
 
 
 

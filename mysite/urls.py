@@ -7,9 +7,9 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
    path('',views.index),
-   path('addAddress',views.cat),
+   path('category',views.cat),
    path('product',views.prod),
-   
+   path('info',views.info),
    
    
 ]
