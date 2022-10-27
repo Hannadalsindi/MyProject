@@ -10,6 +10,9 @@ urlpatterns = [
    path('category',views.cat),
    path('product',views.prod),
    path('info',views.info),
+   path('categoryGet',views.categoryGet),
+ 
+
    
    
 ]

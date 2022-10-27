@@ -3,11 +3,13 @@ from pyexpat.errors import messages
 import re
 from unicodedata import category
 from unittest import skip
+from urllib import response
 from webbrowser import get
 from django.shortcuts import render
 from urllib.request import Request
 from django.contrib.auth.models import User 
 from re import X
+from django.http import JsonResponse
 
 
 
@@ -103,6 +105,28 @@ def info(request):
 
 
 
+
+def categoryGet(request):
+    if request.method == 'GET':
+
+        Category_id=request.GET.get('Category_id')
+
+        # response = {
+        # 'is_taken': 
+        # }
+     
+        
+
+
+
+        
+
+
+    return pro.objects.filter(Category_id_id=Category_id).all()
+
+
+
+   
 
 
 
