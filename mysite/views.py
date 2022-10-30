@@ -10,6 +10,7 @@ from urllib.request import Request
 from django.contrib.auth.models import User 
 from re import X
 from django.http import JsonResponse
+from django.http import HttpResponse
 
 
 
@@ -107,22 +108,20 @@ def info(request):
 
 
 def categoryGet(request):
-    if request.method == 'GET':
+      if request.method == "GET":
+      
+        Category_id = request.GET.get("Category_id", None)
+       
+        if pro.objects.filter(Category_id_id=Category_id).all():
+         
+            return JsonResponse({"valid":False}, status = 200)
+        else:
+            
+            return JsonResponse({"valid":True}, status = 200)
 
-        Category_id=request.GET.get('Category_id')
-
-        # response = {
-        # 'is_taken': 
-        # }
-     
-        
-
-
-
-        
-
-
-    return pro.objects.filter(Category_id_id=Category_id).all()
+      return JsonResponse({}, status = 400)
+    
+    
 
 
 
