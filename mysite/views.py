@@ -110,16 +110,14 @@ def info(request):
 def categoryGet(request):
       if request.method == "GET":
       
-        Category_id = request.GET.get("Category_id", None)
-       
-        if pro.objects.filter(Category_id_id=Category_id).all():
-         
-            return JsonResponse({"valid":False}, status = 200)
-        else:
-            
-            return JsonResponse({"valid":True}, status = 200)
+        Category_id = request.GET.get("Category_id")
+        products = pro.objects.filter(Category_id_id=Category_id).all().values_list('id','Category_id','product_name','Sku','image','price')
+        products = [str(x) for x in products]
 
-      return JsonResponse({}, status = 400)
+       
+      return JsonResponse({"valid":products}, status = 200)
+
+      
     
     
 
