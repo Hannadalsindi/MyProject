@@ -111,7 +111,7 @@ def categoryGet(request):
       if request.method == "GET":
       
         Category_id = request.GET.get("Category_id")
-        products = pro.objects.filter(Category_id_id=Category_id).all().values_list('id','Category_id','product_name','Sku','image','price')
+        products = pro.objects.filter(Category_id_id=Category_id).all().values_list('Category_id','product_name','Sku','image','price')
         products = [str(x) for x in products]
 
        
