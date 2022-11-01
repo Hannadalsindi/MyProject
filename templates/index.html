@@ -18,28 +18,62 @@
    
    <br>
 
-
+   
    <ul class="nav flex-column">
     <li class="nav-item">
+    
+     
+    <label type="button"  onclick="test(1);">Mobiles</label>
+    <div  id="mobile"></div>
+   
+    </li>
+
+
+    
+    <li class="nav-item">
+
+
+      <label type="button"  onclick="test(2);">Laptops</label>
+      <div  id="mobile"></div>
+
+
+    </li>
+
+
+    <li class="nav-item">
+
+      <label type="button"  onclick="test(8);">Gaming</label>
+      <div  id="mobile"></div>
       
-      <a class="nav-link " href="#" onclick="test(2)">Mobiles</a>
     </li>
+
+    
     <li class="nav-item">
-      <a class="nav-link" href="#">Laptops</a>
+      <label type="button"  onclick="test(9);">Televisions
+      </label>
+      <div  id="mobile"></div>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Gaming</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Televisions</a>
-    </li>
+    
   </ul>
+
+<br>
+
+
+  
+  
+  
+ 
+  <br>
+
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script type="text/javascript">
     
 
   function test(category_id){
+
+    
+    var mobile = document.getElementById('mobile');
  
 
     $.ajax({
@@ -49,10 +83,9 @@
       type: 'GET',
       
       success: function(response) {
-      console.log(response)
-     
-      
-      
+      console.log(response);
+
+      mobile.innerHTML += response.valid;
 
 
        
