@@ -11,8 +11,15 @@ urlpatterns = [
    path('product',views.prod),
    path('info',views.info),
    path('categoryGet',views.categoryGet),
+   
+   
+   
  
 
    
    
 ]
+
+
+
+

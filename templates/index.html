@@ -1,103 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+  <div class="col-3">
+
+    <ul class="nav flex-column">
+      <li class="nav-item">
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    
-</head>
+        <label type="button" onclick="test(1);">Mobiles</label>
+        <div id="mobile"></div>
 
-<body>
-  {% extends 'base.html' %}
-
-   {% block content %}
-<br>
-   
-   <br>
-
-   
-   <ul class="nav flex-column">
-    <li class="nav-item">
-    
-     
-    <label type="button"  onclick="test(1);">Mobiles</label>
-    <div  id="mobile"></div>
-   
-    </li>
+      </li>
 
 
-    
-    <li class="nav-item">
+
+      <li class="nav-item">
 
 
-      <label type="button"  onclick="test(2);">Laptops</label>
-      <div  id="mobile"></div>
+        <label type="button" onclick="test(2);">Laptops</label>
+        <div id="mobile"></div>
 
 
-    </li>
+      </li>
 
 
-    <li class="nav-item">
+      <li class="nav-item">
 
-      <label type="button"  onclick="test(8);">Gaming</label>
-      <div  id="mobile"></div>
-      
-    </li>
+        <label type="button" onclick="test(8);">Gaming</label>
+        <div id="mobile"></div>
 
-    
-    <li class="nav-item">
-      <label type="button"  onclick="test(9);">Televisions
-      </label>
-      <div  id="mobile"></div>
-    </li>
-    
-  </ul>
-
-<br>
+      </li>
 
 
-  
-  
-  
- 
-  <br>
+      <li class="nav-item">
+        <label type="button" onclick="test(9);">Televisions
+        </label>
+        <div id="mobile"></div>
+      </li>
+
+    </ul>
+  </div>
+  <div id="view_products" class="col-9">
+
+  </div>
+</div>
 
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script type="text/javascript">
-    
 
-  function test(category_id){
 
-    
-    var mobile = document.getElementById('mobile');
- 
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+  function test(category_id) {
+
+
+    var mobile = document.getElementById('view_products');
+
+    mobile.innerHTML = "";
 
     $.ajax({
       url: '/categoryGet',
-      
-      data : {'Category_id':category_id},
+
+      data: { 'Category_id': category_id },
       type: 'GET',
-      
-      success: function(response) {
-      console.log(response);
 
-      mobile.innerHTML += response.valid;
-
-
-       
+      success: function (response) {
+        response.forEach(function (item){
+          mobile.innerHTML += `<img src="${item.fields.image}"> <label>${item.fields.product_name}, ( ${item.fields.price} )</label>"`;
+        });
+        
       }
-     });
+    });
   }
- 
 
-  </script>
 
-    {% endblock %}
+</script>
 
-    
-</body>
-</html>
+{% endblock %}

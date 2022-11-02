@@ -7,7 +7,8 @@ from pyexpat import model
 from random import choices
 from unittest.util import _MAX_LENGTH
 from django.db import models
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import User
+from django.core import serializers 
 
 
 
@@ -68,6 +69,7 @@ class pro(models.Model):
 
 
  
+
 
 
  

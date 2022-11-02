@@ -1,4 +1,5 @@
 
+import json
 from pyexpat.errors import messages
 import re
 from unicodedata import category
@@ -11,6 +12,7 @@ from django.contrib.auth.models import User
 from re import X
 from django.http import JsonResponse
 from django.http import HttpResponse
+from django.core import serializers
 
 
 
@@ -111,11 +113,11 @@ def categoryGet(request):
       if request.method == "GET":
       
         Category_id = request.GET.get("Category_id")
-        products = pro.objects.filter(Category_id_id=Category_id).all().values_list('Category_id','product_name','Sku','image','price')
-        products = [str(x) for x in products]
-
+        products = pro.objects.filter(Category_id_id=Category_id).all()
        
-      return JsonResponse({"valid":products}, status = 200)
+        jsondata = serializers.serialize('json', products)
+
+      return HttpResponse(jsondata, content_type='application/json')
 
       
     
