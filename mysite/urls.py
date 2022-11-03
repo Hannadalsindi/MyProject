@@ -11,6 +11,9 @@ urlpatterns = [
    path('product',views.prod),
    path('info',views.info),
    path('categoryGet',views.categoryGet),
+   path('register', views.UserCreate.as_view())
+  
+   
    
    
    

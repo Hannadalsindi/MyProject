@@ -1,23 +1,35 @@
 
+import genericpath
 import json
 from pyexpat.errors import messages
 import re
+from types import GenericAlias
+from typing import Generic
 from unicodedata import category
 from unittest import skip
 from urllib import response
-from webbrowser import get
+
 from django.shortcuts import render
 from urllib.request import Request
 from django.contrib.auth.models import User 
+from typing import Generic
 from re import X
 from django.http import JsonResponse
 from django.http import HttpResponse
 from django.core import serializers
+from rest_framework.permissions import AllowAny
+from rest_framework import generics
+
+
+from mysite.models import Info , Category,  pro
+from mysite.serializers import UserSerializer
 
 
 
 
-from mysite.models import Info , Category , pro
+
+
+
 
 # Create your views here.
 
@@ -121,11 +133,18 @@ def categoryGet(request):
 
       
     
-    
 
 
+
+
+class UserCreate(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = (AllowAny, )
 
    
+
+
 
 
 
