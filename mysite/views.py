@@ -21,8 +21,12 @@ from rest_framework.permissions import AllowAny
 from rest_framework import generics
 
 
-from mysite.models import Info , Category,  pro
+from mysite.models import Info , Category,  pro,GeeksModel
 from mysite.serializers import UserSerializer
+
+from rest_framework import viewsets
+from .serializers import GeeksSerializer , ProductsSerializer
+from .models import GeeksModel 
 
 
 
@@ -143,6 +147,27 @@ class UserCreate(generics.CreateAPIView):
     permission_classes = (AllowAny, )
 
    
+
+
+
+class GeeksViewSet(viewsets.ModelViewSet):
+    # define queryset
+    queryset = GeeksModel.objects.all()
+     
+    # specify serializer to be used
+    serializer_class = GeeksSerializer
+
+
+
+
+
+
+class ProductsApi(generics.CreateAPIView):
+    # define queryset
+    queryset = pro.objects.all()
+     
+    # specify serializer to be used
+    serializer_class = ProductsSerializer
 
 
 

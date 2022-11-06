@@ -1,6 +1,9 @@
 
+from sre_constants import CATEGORY_DIGIT
+from urllib import response
 from rest_framework import serializers
 from django.contrib.auth.models import User
+from .models import GeeksModel , pro
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -15,5 +18,28 @@ class UserSerializer(serializers.ModelSerializer):
         user.set_password(password)
         user.save()
         return user
+
+
+
+class GeeksSerializer(serializers.HyperlinkedModelSerializer):
+    # specify model and fields
+    class Meta:
+        model = GeeksModel
+        fields = ('title', 'description')
+
+
+
+
+
+class ProductsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=pro
+        fields=('id',' Category_id',' product_name','image','Sku','price')
+        
+
+
+    
+
+    
 
         
