@@ -29,5 +29,5 @@ admin.site.register(Info)
 admin.site.register(Category)
 
 admin.site.register(pro)
-admin.site.register(GeeksModel)
+
 

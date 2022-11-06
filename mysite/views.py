@@ -25,7 +25,7 @@ from mysite.models import Info , Category,  pro,GeeksModel
 from mysite.serializers import UserSerializer
 
 from rest_framework import viewsets
-from .serializers import GeeksSerializer , ProductsSerializer
+from .serializers import   ProductsSerializer
 from .models import GeeksModel 
 
 
@@ -150,12 +150,6 @@ class UserCreate(generics.CreateAPIView):
 
 
 
-class GeeksViewSet(viewsets.ModelViewSet):
-    # define queryset
-    queryset = GeeksModel.objects.all()
-     
-    # specify serializer to be used
-    serializer_class = GeeksSerializer
 
 
 

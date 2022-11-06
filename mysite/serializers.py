@@ -21,11 +21,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 
-class GeeksSerializer(serializers.HyperlinkedModelSerializer):
-    # specify model and fields
-    class Meta:
-        model = GeeksModel
-        fields = ('title', 'description')
+
 
 
 
