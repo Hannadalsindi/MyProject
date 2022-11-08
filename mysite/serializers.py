@@ -30,7 +30,7 @@ class UserSerializer(serializers.ModelSerializer):
 class ProductsSerializer(serializers.ModelSerializer):
     class Meta:
         model=pro
-        fields=('id',' Category_id',' product_name','image','Sku','price')
+        fields=('id','Category_id','product_name','image','Sku','price')
         
 
 
